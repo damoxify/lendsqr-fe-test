@@ -1,9 +1,20 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import { MemoryRouter } from 'react-router-dom';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import App from './App';
+import AppProvider from './Context/context';
+
+describe('App', () => {
+  it('Renders welcome to dashboard', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </MemoryRouter>
+    );
+
+    const heading2 = document.querySelector('.welcome');
+    expect(heading2?.textContent).toBe('Welcome to the dashboard');
+  });
 });

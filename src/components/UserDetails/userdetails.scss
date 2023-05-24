@@ -1,0 +1,115 @@
+@import '../../styles/variable.scss';
+
+.bottom-margin {
+  margin-bottom: 8px;
+}
+.user-details-page {
+  a {
+    text-decoration: none;
+  }
+}
+.user-details__header {
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: $primary-text;
+    @include tabletSize {
+      font-size: 24px;
+    }
+  }
+  button {
+    font-size: 12px;
+    @include tabletSize {
+      font-size: 14px;
+    }
+  }
+}
+
+.user-division {
+  width: 80px;
+  opacity: 0.2;
+  border: 1px solid #545f7d;
+  @include tabletSize {
+    transform: rotate(90deg);
+  }
+}
+
+.user-details {
+  //   height: 210px;
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px 30px 0 30px;
+  margin-bottom: 30px;
+  #{&}__info {
+    margin-bottom: 40px;
+    display: grid;
+    @include tabletSize {
+      display: flex;
+    }
+  }
+  .user__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
+}
+.user-details__btn-container {
+  display: flex;
+  flex-direction: column;
+  @include tabletSize {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .user-details__btns {
+    padding: 8px 0;
+    opacity: 0.8;
+    @include largeScreen {
+      padding: 8px 24px;
+    }
+  }
+  .user-details__btns-active {
+    display: inline;
+    border-bottom: 2px solid $tertiary-text;
+    color: $tertiary-text;
+    opacity: 1;
+  }
+}
+
+.user-records {
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px;
+  h3 {
+    color: $primary-text;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  h6 {
+    color: $secondary-text;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  p {
+    color: $secondary-text;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
+.info-div {
+  display: flex;
+  flex-direction: column;
+}
+.container-divs {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+}
+
+.guarantor {
+  padding: 20px 0;
+}

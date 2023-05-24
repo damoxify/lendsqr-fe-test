@@ -1,0 +1,30 @@
+$tablet: 800px;
+$large-screen: 1200px;
+$primary-text: #213f7d;
+$secondary-text: #545f7d;
+$tertiary-text: #39cdcc;
+$bg-color: #fbfbfb;
+
+@mixin shadow {
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+}
+@mixin flexItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@mixin flexItemsCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin tabletSize {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+@mixin largeScreen {
+  @media (min-width: $large-screen) {
+    @content;
+  }
+}

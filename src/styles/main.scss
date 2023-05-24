@@ -1,0 +1,118 @@
+@import './variable.scss';
+img {
+  display: block;
+}
+button {
+  all: unset;
+  cursor: pointer;
+}
+select {
+  all: unset;
+}
+
+.text-color1 {
+  color: $primary-text;
+}
+.text-color2 {
+  color: $secondary-text;
+}
+.text-color3 {
+  color: $tertiary-text;
+}
+.margin-bottom {
+  margin-bottom: 30px;
+}
+.pending {
+  background-color: #fdf7e5;
+  color: #e6b000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border-radius: 100px;
+  text-align: center;
+}
+.active {
+  background-color: #f3fcf6;
+  color: #39cd62;
+  padding: 8px 16px;
+  border-radius: 100px;
+  text-align: center;
+}
+.blacklisted {
+  background-color: #fce6eb;
+  color: #e4033b;
+  padding: 8px 16px;
+  border-radius: 100px;
+  text-align: center;
+}
+.inactive {
+  background-color: #f5f5f7;
+  color: #545f7d;
+  padding: 8px 16px;
+  border-radius: 100px;
+  text-align: center;
+}
+
+.btn__blacklist {
+  color: #e4033b;
+  background-color: transparent;
+  border: 1px solid #e4033b;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  font-weight: 600;
+  &:hover {
+    background-color: #e4033b;
+    color: $bg-color;
+    transition: all 0.5s linear;
+  }
+}
+.btn__activate {
+  color: $tertiary-text;
+  background-color: transparent;
+  border: 1px solid $tertiary-text;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  font-weight: 600;
+  &:hover {
+    background-color: $tertiary-text;
+    color: $bg-color;
+    transition: all 0.25s linear;
+  }
+}
+
+.flex {
+  @include flexItems;
+}
+.flex-btw {
+  @include flexItems;
+  justify-content: space-between;
+}
+.flex-center {
+  @include flexItemsCenter;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.table__data {
+  padding-bottom: 20px;
+  border-bottom: 1px solid gray;
+}
+tr {
+  font-size: 14px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 20px;
+  @include tabletSize {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include largeScreen {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 80px;
+  }
+}

@@ -1,0 +1,223 @@
+@import '../../styles/variable.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0 60px;
+  height: 100px;
+  padding: 0 2%;
+  background-color: #ffffff;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+
+  #{&}__l {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 20px;
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 0 20px;
+      .hamburger {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        transition: all 0.25s;
+        position: relative;
+        margin-top: 10px;
+        @include largeScreen {
+          display: none;
+        }
+      }
+      .hamburger-top,
+      .hamburger-md,
+      .hamburger-bt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background-color: $tertiary-text;
+        transform: rotate(0);
+        transition: all 0.5s;
+      }
+      .hamburger-top {
+        transform: translateY(-7px);
+      }
+      .hamburger-bt {
+        transform: translateY(7px);
+      }
+
+      .open {
+        transform: rotate(90deg);
+        transform: translateY(0px);
+      }
+      .open .hamburger-top {
+        transform: rotate(45deg) translateY(6px) translate(6px);
+      }
+      .open .hamburger-md {
+        display: none;
+      }
+      .open .hamburger-bt {
+        transform: rotate(-45deg) translateY(6px) translate(-6px);
+      }
+
+      img {
+        width: 110px;
+      }
+
+      @include tabletSize {
+        img {
+          width: auto;
+        }
+      }
+    }
+
+    .header__input {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include tabletSize {
+        width: 400px;
+        border: 2px solid rgba(84, 95, 125, 0.15);
+        border-radius: 8px;
+      }
+      input {
+        border: none;
+        outline: none;
+        padding: 8px 16px;
+        display: none;
+        @include tabletSize {
+          display: block;
+          flex-grow: 1;
+        }
+      }
+      span {
+        background-color: $tertiary-text;
+        height: 100%;
+        padding: 0 16px;
+        display: grid;
+        place-items: center;
+        border-radius: 100%;
+        @include tabletSize {
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+  }
+  #{&}__r {
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0 40px;
+    .docs {
+      display: none;
+      a {
+        color: $primary-text;
+      }
+      @include largeScreen {
+        display: block;
+        display: flex;
+        align-items: center;
+        gap: 0 40px;
+      }
+    }
+    .user-icon {
+      border-radius: 100%;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 0 10px;
+    }
+  }
+}
+.layout {
+  display: flex;
+  #{&}__outlet {
+    background-color: #fbfbfb;
+    width: 100%;
+    padding: 3% 2%;
+  }
+}
+.sidebar {
+  transform: translate(-100%);
+  position: fixed;
+  width: 283px;
+  background: #ffffff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  transform: translate(-100%);
+  transition: all 0.5s linear;
+  a {
+    text-decoration: none;
+    color: $secondary-text;
+  }
+  #{&}__header {
+    padding: 0 16px;
+    margin: 30px 0;
+    color: $primary-text;
+  }
+  #{&}__nav-container {
+    margin: 30px 0;
+  }
+  .sidebar__inactive {
+    opacity: 0.7;
+    padding: 16px;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      opacity: 1;
+      background-color: #f3fcfc;
+      border-left: 2px solid $tertiary-text;
+      padding: 16px;
+    }
+  }
+  .sidebar__active {
+    opacity: 1;
+    background-color: #f3fcfc;
+    border-left: 2px solid $tertiary-text;
+    padding: 16px;
+  }
+  #{&}__links {
+    display: flex;
+    flex-direction: column;
+    // gap: 20px 0;
+    h5 {
+      font-size: 12;
+      text-transform: uppercase;
+      color: $primary-text;
+      font-weight: 500;
+      margin-bottom: 10px;
+      padding: 0 16px;
+    }
+  }
+
+  #{&}__sublinks {
+    display: flex;
+    flex-direction: column;
+    // gap: 20px 0;
+    margin-bottom: 30px;
+    color: $secondary-text;
+    span {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  @include largeScreen {
+    display: block;
+    position: static;
+    transform: translate(0);
+  }
+}
+
+.show-sidebar {
+  display: block;
+  transform: translate(0);
+  position: absolute;
+  z-index: 99999;
+}
